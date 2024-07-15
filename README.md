@@ -1,1 +1,1 @@
-# QA_27.07.24_VF
+Создано в рамках курса OTUS JavaScript QA Engineer
