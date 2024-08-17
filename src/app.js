@@ -1,14 +1,14 @@
 const scores = {
-        Anna: 10,
-        Olga: 1,
-        Ivan: 5,
-    }
-    /**
-     * Возвращает в ответ сумму всех баллов
-     *
-     * @param {*} data 
-     * @return {*} 
-     */
+    Anna: 10,
+    Olga: 1,
+    Ivan: 5,
+};
+/**
+ * Возвращает в ответ сумму всех баллов
+ *
+ * @param {*} data F
+ * @return {*} 
+ */
 function getScore(data) {
     let listPerson = Object.keys(data);
     let sAll = 0;
@@ -16,4 +16,4 @@ function getScore(data) {
     console.log(sAll);
     return sAll;
 }
-getScore(scores); // 16
+getScore(scores);
