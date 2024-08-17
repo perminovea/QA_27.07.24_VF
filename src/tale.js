@@ -1,24 +1,26 @@
 function kolobok(character) {
+    let action;
     switch (character) {
         case 'дедушка':
-            console.log("Я от дедушки ушёл")
+            action = "Я от дедушки ушёл";
             break
         case 'заяц':
-            console.log("Я от зайца ушёл")
+            action = "Я от зайца ушёл";
             break
         case 'лиса':
-            console.log("Меня съели")
+            action = "Меня съели";
             break
         default:
             console.log("Такого персонажа нет")
     }
+    return action;
 }
 const characters = ['дедушка', 'заяц', 'лиса'];
-characters.forEach(character => kolobok(character));
+characters.forEach(character => console.log(kolobok(character)));
 
 function newYear(character) {
     if (character === 'Дед Мороз' || character === 'Снегурочка')
-        console.log(`${character}! ${character}! ${character}!`)
+        return `${character}! ${character}! ${character}!`;
 }
 const charactersNew = ['Дед Мороз', 'Снегурочка'];
-charactersNew.forEach(character => newYear(character));
+charactersNew.forEach(character => console.log(newYear(character)));
