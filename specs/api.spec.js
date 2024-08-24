@@ -7,7 +7,7 @@ import { expect, describe, test } from '@jest/globals';
 // Генерация токена успешно
 
 
-describe.skip('bookstore api', () => {
+describe('bookstore api', () => {
     const baseUrl = "https://bookstore.demoqa.com";
 
     function weightedRandom(maximum, numberRandoms) {

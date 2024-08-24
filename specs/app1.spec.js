@@ -1,7 +1,7 @@
 import { expect, describe, test } from '@jest/globals';
 import { nameIsValid, fullTrim, getTotal } from '../src/app1.js';
 
-describe.skip('check nameIsValid function', () => {
+describe('check nameIsValid function', () => {
     test('it loads without error', () => {
         expect(nameIsValid).toBeDefined();
         expect(typeof nameIsValid).toBe('function');
@@ -29,7 +29,7 @@ describe.skip('check nameIsValid function', () => {
     });
 });
 
-describe.skip('check fullTrim function', () => {
+describe('check fullTrim function', () => {
     test('it loads without error', () => {
         expect(fullTrim).toBeDefined();
         expect(typeof fullTrim).toBe('function');
@@ -59,7 +59,7 @@ describe.skip('check fullTrim function', () => {
     });
 });
 
-describe.skip('check getTotal function', () => {
+describe('check getTotal function', () => {
     const order = [{ price: 10, quantity: 10 }];
     test('it loads without error', () => {
         expect(getTotal).toBeDefined();
