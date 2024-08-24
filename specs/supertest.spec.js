@@ -133,36 +133,3 @@ describe('libraries for testing', () => {
         })
     })
 })
-
-/* 
-export async function reqBookstoreCreateUser(data) {
-    return await fetch(`${baseUrl}/Account/v1/User`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-    })
-}
-
-export async function reqBookstoreDeleteUser(userId) {
-    return await fetch(`${baseUrl}/Account/v1/User/${userId}`, {
-        method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-    })
-}
-
-export async function reqBookstoreAuthorized(data) {
-    return await fetch(`${baseUrl}/Account/v1/Authorized`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-    });
-}
-
-export async function reqBookstoreGenerateToken(data) {
-    return await fetch(`${baseUrl}/Account/v1/GenerateToken`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-    })
-} */
