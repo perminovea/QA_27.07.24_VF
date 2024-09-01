@@ -1,6 +1,32 @@
-name: test 
+name: CI
+
 on: [ push] 
+
 jobs:
+  eslint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: 
+          node-version cache : 20.17.0
+          cashe: 'npm' 
+      - run: npm ci 
+      - run: npm run lint:ci
+
+  prettier:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: 
+          node-version cache : 20.17.0
+          cashe: 'npm' 
+      - run: npm ci 
+      - run: npm run format:ci
+
   test: 
     runs-on: ubuntu-latest
     steps:
@@ -9,5 +35,5 @@ jobs:
         with: 
           node-version cache : 20.17.0
           cashe: 'npm' 
-      - run: npm ci 
+      - run: npm ci
       - run: npm run jtest
