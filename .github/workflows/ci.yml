@@ -1,7 +1,8 @@
 name: CI
 on: [ push] 
 
-workflow_dispatch: # Enables triggering manually 
+#workflow_dispatch:
+
 
 permissions:
   contents: read
@@ -24,12 +25,13 @@ jobs:
           cashe: 'npm' 
       - run: npm ci
       - run: npm run jtest
+      - run: npm run allure:ci
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'reports/html-report'
+          path: 'allure-report'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
