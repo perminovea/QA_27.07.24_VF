@@ -35,3 +35,15 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  notification:
+    if: always()
+    needs: [ test ]
+
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl --request POST \
+               --url https://api.telegram.org/bot7384923756:AAF7CcBPKGKMZVxLKf-MwL0AvIqhjECBpBc/sendMessage \
+               --header 'Content-Type: application/json' \
+                --data '{ "chat_id": "354869808", "text": "Report link" }'
