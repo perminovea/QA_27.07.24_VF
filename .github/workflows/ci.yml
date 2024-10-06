@@ -44,6 +44,6 @@ jobs:
     steps:
       - run: |
           curl --request POST \
-               --url https://api.telegram.org/bot${TOKEN}/sendMessage \
+               --url https://api.telegram.org/bot${{secrets.TOKEN}}/sendMessage \
                --header 'Content-Type: application/json' \
-                --data '{ "chat_id": ${CHAT_ID}, "text": "Report link" }'
+                --data '{ "chat_id": "${{secrets.CHAT_ID}}", "text": "Report link" }'
