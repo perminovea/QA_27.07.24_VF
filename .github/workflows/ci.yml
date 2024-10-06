@@ -1,6 +1,20 @@
-name: test 
+name: CI
 on: [ push] 
+
+#workflow_dispatch:
+
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
+
 jobs:
+
   test: 
     runs-on: ubuntu-latest
     steps:
@@ -9,5 +23,27 @@ jobs:
         with: 
           node-version cache : 20.17.0
           cashe: 'npm' 
-      - run: npm ci 
-      - run: npm test
+      - run: npm ci
+      - run: npm run jtest
+      - run: npm run allure:ci
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'allure-report'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  notification:
+    if: always()
+    needs: [ test ]
+
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl --request POST \
+               --url https://api.telegram.org/bot${{secrets.TOKEN}}/sendMessage \
+               --header 'Content-Type: application/json' \
+                --data '{ "chat_id": "${{secrets.CHAT_ID}}", "text": "Report link" }'
